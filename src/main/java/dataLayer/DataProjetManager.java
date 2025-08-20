@@ -12,8 +12,9 @@ import models.Projet;
 
 public class DataProjetManager implements IDataProjetManager {
 
-					ArrayList<Projet> projets = new ArrayList<Projet>();
-					Projet	projet = new Projet();
+	private ArrayList<Projet> projets = new ArrayList<Projet>();
+	private Projet projet = new Projet();
+	
     @Override
     public void ajouterProjet(Projet projet) {
     	Connection connection = ConnectionDB.getConnection();
@@ -32,9 +33,10 @@ public class DataProjetManager implements IDataProjetManager {
 			e.printStackTrace();
 		}
     }
+    
     @Override
-    public   ArrayList<Projet> getProjets() {
-    	
+    public ArrayList<Projet> getProjets() {
+    	ArrayList<Projet> projetsList = new ArrayList<Projet>();
     	Connection connection = ConnectionDB.getConnection();
     	try {
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM projets");
@@ -49,7 +51,7 @@ public class DataProjetManager implements IDataProjetManager {
 				p.setClient(rs.getString("client"));
 				p.setNomProjet(rs.getString("nomProjet"));
 				p.setNbrJoursDevelop(rs.getInt("nbrJoursDevelop"));
-				projets.add(p);
+				projetsList.add(p);
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -57,10 +59,30 @@ public class DataProjetManager implements IDataProjetManager {
 			e.printStackTrace();
 		}
     	
-        return projets;
+        return projetsList;
     }
+    
+    // Static method to get list of projects (for compatibility)
+    public static ArrayList<Projet> getListeProjets() {
+    	DataProjetManager manager = new DataProjetManager();
+    	return manager.getProjets();
+    }
+    
+    // Static method to get list of project names (for compatibility)
+    public static ArrayList<String> getListeNoms() {
+    	ArrayList<String> noms = new ArrayList<String>();
+    	DataProjetManager manager = new DataProjetManager();
+    	ArrayList<Projet> projets = manager.getProjets();
+    	
+    	for (Projet projet : projets) {
+    		noms.add(projet.getNomProjet());
+    	}
+    	
+    	return noms;
+    }
+    
     @Override
-    public  Projet getProjetParId(long id) {
+    public Projet getProjetParId(long id) {
     	Connection connection = ConnectionDB.getConnection();
     	try {
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM projets WHERE idProjet = ?");
@@ -87,11 +109,13 @@ public class DataProjetManager implements IDataProjetManager {
     	
         return projet;
     }
+    
 	@Override
 	public void affecterChefDeProjet(Projet projet, ChefProjet chefprojet) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public void supprimerProjet(Projet projet) {
 		// TODO Auto-generated method stub

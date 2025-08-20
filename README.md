@@ -1,6 +1,6 @@
-# 🏢 ProjetJEE - Système de Gestion de Projets
+# 🏢 Ressource Manager App - Système de Gestion des Ressources
 
-Un système complet de gestion de projets d'entreprise développé en Java Enterprise Edition (JEE) avec une architecture MVC moderne.
+Un système complet de gestion des ressources et projets d'entreprise développé en Java Enterprise Edition (JEE) avec une architecture MVC moderne.
 
 ## 🚀 Fonctionnalités
 
@@ -33,8 +33,8 @@ Un système complet de gestion de projets d'entreprise développé en Java Enter
 
 ### 1. Cloner le projet
 ```bash
-git clone https://github.com/heniEl10/ProjetJEE.git
-cd ProjetJEE
+git clone https://github.com/heniEl10/ressource-manager-app.git
+cd ressource-manager-app
 ```
 
 ### 2. Configuration de la base de données
@@ -59,7 +59,7 @@ db.password=votre_mot_de_passe
 3. **Redémarrer Tomcat**
 
 ### 4. Accès à l'application
-- **URL**: `http://localhost:8080/ProjetJEE`
+- **URL**: `http://localhost:8080/ressource-manager-app`
 - **Compte admin**: `admin` / `admin`
 
 ## 👥 Rôles Utilisateurs
@@ -87,7 +87,7 @@ db.password=votre_mot_de_passe
 ## 📁 Structure du Projet
 
 ```
-ProjetJEE/
+ressource-manager-app/
 ├── src/
 │   └── main/
 │       ├── java/
@@ -162,7 +162,7 @@ mvn clean package
 
 2. **Déploiement sur Tomcat**:
 ```bash
-cp target/ProjetJEE.war $TOMCAT_HOME/webapps/
+cp target/ressource-manager-app.war $TOMCAT_HOME/webapps/
 ```
 
 3. **Configuration de la base de données**:
@@ -232,9 +232,14 @@ mvn jacoco:report
 
 Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
+## 🔗 Related Projects
+
+- [Ressource Manager Frontend](https://github.com/heniEl10/ressource-manager-frontend) - Interface utilisateur moderne (coming soon)
+- [Ressource Manager Mobile](https://github.com/heniEl10/ressource-manager-mobile) - Application mobile (coming soon)
+
 ## 📞 Support
 
-- **Issues GitHub**: [ProjetJEE Issues](https://github.com/heniEl10/ProjetJEE/issues)
+- **Issues GitHub**: [Ressource Manager App Issues](https://github.com/heniEl10/ressource-manager-app/issues)
 - **Documentation**: Consultez ce README et les commentaires du code
 - **Contact**: Ouvrez une issue pour toute question
 
@@ -251,4 +256,4 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 **Développé avec ❤️ en Java Enterprise Edition**
 
-*ProjetJEE - Simplifiez la gestion de vos projets d'entreprise*
+*Ressource Manager App - Simplifiez la gestion de vos ressources et projets d'entreprise*

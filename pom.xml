@@ -5,14 +5,14 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.projetjee</groupId>
-    <artifactId>projet-jee</artifactId>
+    <groupId>com.ressourcemanager</groupId>
+    <artifactId>ressource-manager-app</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <name>ProjetJEE</name>
-    <description>Système de gestion de projets d'entreprise en Java EE</description>
-    <url>https://github.com/heniEl10/ProjetJEE</url>
+    <name>Ressource Manager App</name>
+    <description>Système de gestion des ressources et projets d'entreprise en Java EE</description>
+    <url>https://github.com/heniEl10/ressource-manager-app</url>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -129,7 +129,7 @@
     </dependencies>
 
     <build>
-        <finalName>ProjetJEE</finalName>
+        <finalName>ressource-manager-app</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
         <resources>
@@ -272,7 +272,7 @@
         <developer>
             <name>heniEl10</name>
             <email>heniel10@example.com</email>
-            <organization>ProjetJEE Team</organization>
+            <organization>Ressource Manager Team</organization>
         </developer>
     </developers>
 
@@ -285,8 +285,8 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/heniEl10/ProjetJEE.git</connection>
-        <developerConnection>scm:git:ssh://github.com:heniEl10/ProjetJEE.git</developerConnection>
-        <url>https://github.com/heniEl10/ProjetJEE</url>
+        <connection>scm:git:git://github.com:heniEl10/ressource-manager-app.git</connection>
+        <developerConnection>scm:git:ssh://github.com:heniEl10/ressource-manager-app.git</developerConnection>
+        <url>https://github.com/heniEl10/ressource-manager-app</url>
     </scm>
 </project>

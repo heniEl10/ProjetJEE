@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ressource Manager App - Aperçu de l'Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .screen-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .screen-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .screen-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .login-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .dashboard {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .project-list {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .project-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .project-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-planned {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-completed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features-list li:before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .screens-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏢 Ressource Manager App</h1>
+            <p>Système de Gestion des Ressources et Projets d'Entreprise</p>
+        </div>
+        
+        <div class="screens-grid">
+            <!-- Login Screen -->
+            <div class="screen-card">
+                <h2 class="screen-title">🔐 Écran de Connexion</h2>
+                <div class="login-form">
+                    <div class="form-group">
+                        <label for="username">Nom d'utilisateur:</label>
+                        <input type="text" id="username" value="admin" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe:</label>
+                        <input type="password" id="password" value="admin" readonly>
+                    </div>
+                    <button class="btn">Se connecter</button>
+                </div>
+                <div class="features-list">
+                    <li>Authentification sécurisée</li>
+                    <li>Gestion des rôles utilisateur</li>
+                    <li>Session sécurisée</li>
+                </div>
+            </div>
+            
+            <!-- Dashboard Screen -->
+            <div class="screen-card">
+                <h2 class="screen-title">📊 Tableau de Bord</h2>
+                <div class="dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Projets Actifs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Tâches en Cours</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Équipes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">78%</div>
+                            <div class="stat-label">Progression</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px; color: #333;">Projets Récents</h3>
+                    <div class="project-list">
+                        <div class="project-item">
+                            <span class="project-name">Site E-commerce</span>
+                            <span class="project-status status-active">En cours</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-name">Application Mobile</span>
+                            <span class="project-status status-planned">Planifié</span>
+                        </div>
+                        <div class="project-item">
+                            <span class="project-name">Système CRM</span>
+                            <span class="project-status status-completed">Terminé</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Management Screen -->
+            <div class="screen-card">
+                <h2 class="screen-title">📋 Gestion des Projets</h2>
+                <div class="dashboard">
+                    <h3 style="margin-bottom: 15px; color: #333;">Fonctionnalités</h3>
+                    <ul class="features-list">
+                        <li>Création de nouveaux projets</li>
+                        <li>Affectation des chefs de projet</li>
+                        <li>Suivi des tâches et deadlines</li>
+                        <li>Gestion des équipes</li>
+                        <li>Rapports et statistiques</li>
+                        <li>Gestion des clients</li>
+                    </ul>
+                    
+                    <h3 style="margin: 20px 0 15px 0; color: #333;">Technologies</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java EE</span>
+                        <span class="tech-tag">JSP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Servlet</span>
+                        <span class="tech-tag">MVC</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Management Screen -->
+            <div class="screen-card">
+                <h2 class="screen-title">👥 Gestion des Utilisateurs</h2>
+                <div class="dashboard">
+                    <h3 style="margin-bottom: 15px; color: #333;">Rôles Disponibles</h3>
+                    <ul class="features-list">
+                        <li><strong>Administrateur:</strong> Gestion complète du système</li>
+                        <li><strong>Directeur:</strong> Vue d'ensemble et rapports</li>
+                        <li><strong>Chef de Projet:</strong> Gestion des projets assignés</li>
+                        <li><strong>Développeur:</strong> Consultation et mise à jour des tâches</li>
+                    </ul>
+                    
+                    <h3 style="margin: 20px 0 15px 0; color: #333;">Sécurité</h3>
+                    <ul class="features-list">
+                        <li>Authentification JWT</li>
+                        <li>Gestion des sessions</li>
+                        <li>Contrôle d'accès par rôle</li>
+                        <li>Validation des entrées</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🚀 Ressource Manager App - Application de Gestion des Ressources</p>
+            <p>📧 Contact: heniel10@example.com | 🌐 GitHub: heniEl10/ressource-manager-app</p>
+        </div>
+    </div>
+</body>
+</html>

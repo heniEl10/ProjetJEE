@@ -31,6 +31,7 @@ public class Projet {
 		this.dateLivraison = dateLivraison;
 		this.nbrJoursDevelop = nbrJoursDevelop;
 	}
+	
 	public long getIdProjet() {
 		return idProjet;
 	}
@@ -43,6 +44,14 @@ public class Projet {
 	public void setIdChefProjet(long idChefProjet) {
 		this.idChefProjet = idChefProjet;
 	}
+	
+	// Method to set chef de projet by name (for compatibility)
+	public void setChefDeProjet(String chefProjetName) {
+		// This is a temporary method for compatibility
+		// In a real application, you would look up the chef by name and set the ID
+		this.idChefProjet = 0; // Default value
+	}
+	
 	public String getNomProjet() {
 		return nomProjet;
 	}
